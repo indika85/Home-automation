@@ -1,0 +1,25 @@
+  - alias: Livingroom low air quality
+    initial_state: True
+    hide_entity: True
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.livingroom_air_quality
+      below: 60
+    action:
+      service: notify.Notifications
+      data_template:
+        title: "Low air quality warning!"
+        message: "Livingroom air quality has droped to {{ states.sensor.livingroom_air_quality.state }}%"
+        
+  - alias: Seccurity system
+    initial_state: True
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.security_system
+      to: 'triggered'
+    action:
+      service: notify.Notifications
+      data_template:
+        title: "Alarm triggered!"
+        message: "Security alarm has been triggered."

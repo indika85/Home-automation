@@ -1,0 +1,25 @@
+  - platform: mqtt
+    name: "Livingroom Temp."
+    state_topic: "home/livingroom/temperature"
+    unit_of_measurement: "°C"
+    
+  - platform: mqtt
+    name: "Outside Temp."
+    state_topic: "home/outside/temperature"
+    unit_of_measurement: "°C"
+    
+  - platform: mqtt
+    name: "Livingroom Humid."
+    state_topic: "home/livingroom/humidity"
+    unit_of_measurement: "%"
+    
+  - platform: mqtt
+    name: "Livingroom air quality"
+    state_topic: "home/livingroom/airquality"
+    unit_of_measurement: "%"
+    
+  - platform: mqtt
+    name: "Livingroom light level"
+    state_topic: "home/livingroom/lightlevel"
+    unit_of_measurement: "%"
+  

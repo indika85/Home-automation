@@ -1,0 +1,9 @@
+  - platform: mqtt
+    name: "Livingroom light"
+    state_topic: "home/livingroom/light"
+    command_topic: "home/livingroom/light/set"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    qos: 0
+    retain: true

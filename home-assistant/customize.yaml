@@ -1,0 +1,28 @@
+########CUSTOMIZE SENSORS########    
+     sensor.livingroom_air_quality:
+        icon: mdi:air-conditioner
+        friendly_name: "Air quality"
+     sensor.livingroom_humid:
+        icon: mdi:water-percent
+        friendly_name: "Humidity"
+     sensor.livingroom_light_level:
+        icon: mdi:brightness-4
+        friendly_name: "Light level"
+     sensor.livingroom_temp:
+        icon: mdi:oil-temperature
+        friendly_name: "Temperature"
+     sensor.outside_temp:
+        icon: mdi:oil-temperature
+        friendly_name: "Temperature"
+        
+#######CUSTOMIZE SWITCHES########
+     switch.security_system:
+        friendly_name: "Security system"
+        icon: mdi:security
+     switch.livingroom_light:
+        friendly_name: Light
+        icon: mdi:lightbulb-outline
+        
+#######CUSTOMIZE CAMERAS########
+     camera.local_file:
+        friendly_name: "Livingroom view"

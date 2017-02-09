@@ -1,0 +1,87 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 47.48
+  longitude: -120.30
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: UTC
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL or running in Docker etc
+  base_url: indika.duckdns.org:8123
+
+# Checks for available updates
+#updater:
+
+#mqtt
+mqtt:
+  broker: !secret broker_ip
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+# Discover some devices automatically
+#discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+alarm_control_panel:
+  platform: mqtt
+  name: "Security system"
+  state_topic: "home/security"
+  command_topic: "home/security/set"
+  qos: 1
+  retain: true
+  
+# Track the sun
+# sun:
+
+#switch: !include switches.yaml
+
+light: !include lights.yaml
+# Weather Prediction
+sensor: !include sensors.yaml
+
+camera:
+  - platform: local_file
+    file_path: "/home/pi/.homeassistant/Camera/image.jpg"
+
+notify:
+  - name: Notifications
+    platform: pushbullet
+    api_key: !secret pushbullet_API_KEY
+
+automation: !include automations.yaml
+
+# Text to speech
+tts:
+  platform: google
+  
+group: !include groups.yaml
+
+recorder:
+  # Delete events and states older than 3 days
+  purge_days: 3

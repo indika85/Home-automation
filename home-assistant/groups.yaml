@@ -1,0 +1,41 @@
+
+  livingroom:
+    name: Livingroom
+    view: yes
+    entities:
+      - group.livingroom_envioronment
+      - light.livingroom_light
+      - camera.local_file
+  
+  outside:
+    name: Outside
+    view: yes
+    entities:
+      - group.outside_envioroment
+  
+  security:
+    name: Security
+    view: yes
+    entities:
+      - group.security_
+  
+  livingroom_envioronment:
+    name: Livingroom Environment
+    view: no
+    entities:
+      - sensor.livingroom_air_quality
+      - sensor.livingroom_humid
+      - sensor.livingroom_light_level
+      - sensor.livingroom_temp
+  
+  security_:
+    name: System Status
+    view: no
+    entities:
+      - alarm_control_panel.security_system
+  
+  outside_envioroment:
+    name: Outside Environment
+    view: no
+    entities:
+      - sensor.outside_temp
