@@ -96,6 +96,7 @@ unsigned long ESPRespondMillis = 0;
 uint8_t currentSysStatus = 0;					//System armed or disarmed
 
 String time = "12:00 AM";
+String date = "February 08, 2017";
 
 bool screenState = 1;							//Screen on or off
 bool motionState = 0;							//Motion detected or not

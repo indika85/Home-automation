@@ -64,10 +64,10 @@ void resetESP8266() {
 }
 
 void takeAction(String topic, String val) {
-	//Serial.print(F("Message from: "));
-	//Serial.print(topic);
-	//Serial.print(F(" with value: "));
-	//Serial.println(val);
+	Serial.print(F("Message from: "));
+	Serial.print(topic);
+	Serial.print(F(" with value: "));
+	Serial.println(val);
 	
 	if (topic == "home/security/set") {
 		if (val == "DISARM") {
@@ -82,6 +82,8 @@ void takeAction(String topic, String val) {
 	}
 	else if (topic == "weather/id") {
 		HMI_update_pic("home_page.pic_icon", get_pic_id(val));
+		String cmd = time + " " + date;
+		HMI_update_txt("weather_page.txt_updated_on", cmd);//"weather_page.txt_updated_on"
 	}
 	else if (topic == "weather/description") {
 		HMI_update_txt("home_page.txt_forecast", val);
@@ -115,7 +117,7 @@ void takeAction(String topic, String val) {
 		if (index <= 0) return;
 
 		time = val.substring(0, index);
-		String date = val.substring(index + 1);
+		date = val.substring(index + 1);
 
 		HMI_update_txt("home_page.txt_time", time);
 		HMI_update_txt("home_page.txt_date", date);
